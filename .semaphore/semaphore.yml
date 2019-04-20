@@ -146,3 +146,7 @@ blocks:
            - pip install -r requirements.txt --cache-dir .pip_cache
            # Test if project can be deployed securely.
            - python manage.py check --deploy --fail-level ERROR
+
+promotions:
+  - name: "Deploy to Pythonanywhere"
+    pipeline_file: deploy_to_pythonanywhere.yml

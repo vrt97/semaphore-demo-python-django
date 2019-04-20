@@ -1,0 +1,18 @@
+# .semaphore/deploy_to_pythonanywhere.yml
+version: v1.0
+name: Deploy to Pythonanywhere
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+blocks:
+  - name: Deploy
+    task:
+      env_vars:
+        - name: PAW_REPO
+          value: https://github.com/vrt97/semaphore-demo-python-django.git
+      jobs:
+        - name: 'Git push to bare repository on PAW'
+          commands:
+            - git remote add paw $PAW_REPO
+            - git push paw -f $SEMAPHORE_GIT_BRANCH:master
