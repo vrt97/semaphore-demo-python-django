@@ -85,10 +85,10 @@ WSGI_APPLICATION = 'pydjango_ci_integration.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'pydjango',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': '127.0.0.1',
+        'NAME': 'vrt97$pydjango',
+        'USER': 'vrt97',
+        'PASSWORD': 'MY97SQL97',
+        'HOST': 'vrt97.mysql.pythonanywhere-services.com',
         'PORT': '3306',
     }
 }
