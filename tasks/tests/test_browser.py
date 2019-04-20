@@ -22,5 +22,6 @@ class TaskListViewTest(TestCase):
         chrome_driver_path = BASE_DIR + sep + 'chromedriver' + sep + 'chromedriver'
         browser = webdriver.Chrome(chrome_options=options, executable_path=chrome_driver_path)
         browser.get(SITE_URL)
+        print(browser.title)
         self.assertIn('Semaphore', browser.title)
         browser.close()
