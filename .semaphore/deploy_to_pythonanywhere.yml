@@ -14,6 +14,6 @@ blocks:
       jobs:
         - name: 'Git push to bare repository on PAW'
           commands:
-            - echo '$PAW_REPO'
+            - echo '${PAW_REPO}'
             - git remote add paw $PAW_REPO
             - git push paw -f $SEMAPHORE_GIT_BRANCH:master
