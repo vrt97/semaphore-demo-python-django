@@ -15,6 +15,5 @@ blocks:
         - name: 'Git push to bare repository on PAW'
           commands:
             - checkout
-            - echo $PAW_REPO
             - git remote add paw $PAW_REPO
             - git push paw -f master
