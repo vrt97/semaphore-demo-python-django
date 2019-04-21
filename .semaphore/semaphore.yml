@@ -101,37 +101,37 @@ blocks:
             # Test the application's views.
             - python manage.py test tasks.tests.test_views
 
-  - name: "Run Browser Tests"
-    task:
-      # This block runs browser-based tests.
-      # We need to set environment variables.
-      # See https://docs.semaphoreci.com/article/66-environment-variables-and-secrets
-      env_vars:
-        - name: DB_NAME
-          value: 'pydjango'
-      # This test requires the application to be running.
-      # We start the application server here.
-      prologue:
-        commands:
-          - sem-version python 3.7
-          # Start MySQL database.
-          - sem-service start mysql
-          # Install mysql client.
-          - sudo apt-get install -y -qq mysql-client
-          # Create an empty database.
-          # We can connect to the db with root and a blank password.
-          - mysql --host=0.0.0.0 -uroot -e "create database $DB_NAME"
-          - checkout
-          - cache restore requirements-$SEMAPHORE_GIT_BRANCH-$(checksum requirements.txt)
-          - pip install -r requirements.txt --cache-dir .pip_cache
-          # Start application server.
-          - nohup python manage.py runserver &
-      jobs:
-        - name: Browser Test
-          commands:
-            # Run browser tests on Google Chrome.
-            # On Semaphore, browsers are already installed.
-            - python manage.py test tasks.tests.test_browser
+  # - name: "Run Browser Tests"
+  #   task:
+  #     # This block runs browser-based tests.
+  #     # We need to set environment variables.
+  #     # See https://docs.semaphoreci.com/article/66-environment-variables-and-secrets
+  #     env_vars:
+  #       - name: DB_NAME
+  #         value: 'pydjango'
+  #     # This test requires the application to be running.
+  #     # We start the application server here.
+  #     prologue:
+  #       commands:
+  #         - sem-version python 3.7
+  #         # Start MySQL database.
+  #         - sem-service start mysql
+  #         # Install mysql client.
+  #         - sudo apt-get install -y -qq mysql-client
+  #         # Create an empty database.
+  #         # We can connect to the db with root and a blank password.
+  #         - mysql --host=0.0.0.0 -uroot -e "create database $DB_NAME"
+  #         - checkout
+  #         - cache restore requirements-$SEMAPHORE_GIT_BRANCH-$(checksum requirements.txt)
+  #         - pip install -r requirements.txt --cache-dir .pip_cache
+  #         # Start application server.
+  #         - nohup python manage.py runserver &
+  #     jobs:
+  #       - name: Browser Test
+  #         commands:
+  #           # Run browser tests on Google Chrome.
+  #           # On Semaphore, browsers are already installed.
+  #           - python manage.py test tasks.tests.test_browser
 
 
   - name: "Run Security Tests"
