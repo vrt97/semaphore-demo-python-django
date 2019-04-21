@@ -16,6 +16,7 @@ class TaskListViewTest(TestCase):
     """
     # # Browser Integration testing with Selenium
     def test_chrome_site_homepage(self):
+        # Local chrome driver
         chrome_driver_path = BASE_DIR + sep + 'chromedriver' + sep + 'chromedriver'
         browser = webdriver.Chrome(executable_path=chrome_driver_path)
         browser.get(SITE_URL)
