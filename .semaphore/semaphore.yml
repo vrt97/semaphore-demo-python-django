@@ -150,3 +150,5 @@ blocks:
 promotions:
   - name: "Deploy to Pythonanywhere"
     pipeline_file: deploy_to_pythonanywhere.yml
+    auto_promote_on:
+      - result: passed

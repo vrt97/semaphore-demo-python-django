@@ -17,4 +17,4 @@ blocks:
             - checkout
             - echo $PAW_REPO
             - git remote add paw $PAW_REPO
-            - git push paw -f $SEMAPHORE_GIT_BRANCH:master
+            - git push paw -f master
