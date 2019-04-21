@@ -10,7 +10,7 @@ blocks:
     task:
       env_vars:
         - name: PAW_REPO
-          value: https://github.com/vrt97/semaphore-demo-python-django.git
+          value: "https://github.com/vrt97/semaphore-demo-python-django.git"
       jobs:
         - name: 'Git push to bare repository on PAW'
           commands:
