@@ -10,10 +10,12 @@ blocks:
     task:
       env_vars:
         - name: PAW_REPO
-          value: "https://github.com/vrt97/semaphore-demo-python-django.git"
+          value: "vrt97@ssh.pythonanywhere.com//home/vrt97/semaphore-demo-python-django.git/"
       jobs:
         - name: 'Git push to bare repository on PAW'
           commands:
             - checkout
+            - git config --global url.ssh://git@github.com/.insteadOf https://github.com/
+            - echo $PAW_REPO
             - git remote add paw $PAW_REPO
             - git push paw -f master
